@@ -41,4 +41,67 @@
             2 5 0 0
             7 5 3 0
             2 1 3 1
-*/
+*/#include <stdio.h>
+
+int main() {
+    int n;
+    
+    // รับขนาดของ Matrix
+    printf("Input cube size : ");
+    scanf("%d", &n);
+    
+    int matrix[n][n];
+    
+    // รับค่า Element จากผู้ใช้
+    printf("Input element :\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    // แสดง Matrix
+    printf("Matrix =\n");
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    
+    // รับค่าการแสดงผลการเปลี่ยนแปลง Matrix
+    int showLeft;
+    printf("Show zero (1=Left, -1=Right) : ");
+    scanf("%d", &showLeft);
+    
+    // แสดงผลการเปลี่ยนแปลง Matrix
+    if (showLeft == 1) {
+        printf("Left Matrix =\n");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j < i) {
+                    printf("0 ");
+                } else {
+                    printf("%d ", matrix[i][j]);
+                }
+            }
+            printf("\n");
+        }
+    } else if (showLeft == -1) {
+        printf("Right Matrix =\n");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j > i) {
+                    printf("0 ");
+                } else {
+                    printf("%d ", matrix[i][j]);
+                }
+            }
+            printf("\n");
+        }
+    } else {
+        printf("Invalid choice\n");
+    }
+    
+    return 0;
+}
